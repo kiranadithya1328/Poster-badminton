@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DK'S Badminton Club</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #112163;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 32px;
+            padding-bottom: 16px;
+            background: linear-gradient(90deg, #19287b 60%, #f6c800 180%);
+        }
+        
+        .logo {
+            width: 58px;
+            height: 58px;
+            border-radius: 12px;
+            background: #fff;
+            margin-right: 16px;
+            box-shadow: 0 0 12px #0002;
+            border: 2px solid #ffe066;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        .club-title {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 2px 12px #23387470;
+        }
+        
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 38px;
+        }
+        
+        .poster-img {
+            width: 80vw;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px #23387480;
+            background: #fff;
+            border: 3px solid #ffe066;
+            margin-bottom: 22px;
+        }
+        
+        @media (max-width: 600px) {
+            .poster-img {
+                width: 97vw;
+                max-width: 98vw;
+                border-radius: 10px;
+            }
+            .header {
+                flex-direction: column;
+                padding: 20px 0 10px 0;
+            }
+            .logo {
+                margin-right: 0;
+                margin-bottom: 8px;
+            }
+            .club-title {
+                font-size: 1.2rem;
+            }
+        }
+        
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="./Logo.jpg" alt="Logo">
+        </div>
+        <span class="club-title">DK's BADMINTON CLUB</span>
+    </div>
+    <div class="center-content">
+        <img class="poster-img" src="./poster.jpg" alt="Tournament Poster" />
+    </div>
+    <audio id="backgroundMusic" autoplay loop>
+    <source src="kiss-of-autumn-instrumental-background-music-for-video-full-version-407613.mp3" type="audio/mpeg"/>
+  </audio>
+    <script>
+        // Volume fade in for smooth background music start
+        const audio = document.getElementById('backgroundMusic');
+        audio.volume = 1;
+        let v = 0;
+        const fade = setInterval(() => {
+            if (v < 0.17) {
+                v += 0.009;
+                audio.volume = v;
+            } else {
+                clearInterval(fade);
+            }
+        }, 80);
+    </script>
+</body>
+
+</html>
